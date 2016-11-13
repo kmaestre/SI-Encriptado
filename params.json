@@ -1,6 +1,6 @@
 {
   "name": "SI-Encriptado",
   "tagline": "Ejemplo de Criptografia clasica para Seguridad Informatica",
-  "body": "./index.html",
+  "body": "./encriptado.html",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
