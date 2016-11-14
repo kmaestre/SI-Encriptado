@@ -13,12 +13,11 @@ function genkey(){
       }
       document.getElementById('cgen').value = clave;
     };
+
     function encrypt(){
-      var abc = "abcdefghijklmnñopqrstuvwxyz"
+      var abc = "abcdefghijklmnñopqrstuvwxyz0123456789"
       var cgen = document.getElementById('cgen').value;
       var mensaje = document.getElementById('mensaje').value.toLowerCase();
-      mensaje = mensaje.toString().replace(/,/g, "");
-      mensaje = mensaje.toString().replace(/\./g, "");encriptado
       var desp = document.getElementById('desp').value;
       var encriptado = [];
       var i = 0, j = 0, k = 0;
@@ -43,10 +42,10 @@ function genkey(){
           }
         }
         if(posabc < 0){
-          posabc = posabc + 27;
+          posabc = posabc + 37;
         }
-        if(posabc > 27){
-          posabc = posabc - 27;
+        if(posabc > 37){
+          posabc = posabc - 37;
         }
         console.log(char, posabc, abc.charAt(posabc));
         encriptado.push(abc.charAt(posabc));
@@ -58,11 +57,12 @@ function genkey(){
         i++;
       }
       encriptado = encriptado.toString().replace(/,/g, "");
+      encriptado = encriptado.toString().replace(/\./g, "");
       document.getElementById('mensaje').value = encriptado;
       
     };
     function decrypt(){
-      var abc = "abcdefghijklmnñopqrstuvwxyz"
+      var abc = "abcdefghijklmnñopqrstuvwxyz0123456789"
       var cgen = document.getElementById('cgen').value;
       var mensaje = document.getElementById('mensaje').value;
       var desp = document.getElementById('desp').value;
@@ -89,10 +89,10 @@ function genkey(){
           }
         }
         if(posabc < 0){
-          posabc = posabc + 27;
+          posabc = posabc + 37;
         }
-        if(posabc > 26){
-          posabc = posabc - 27;
+        if(posabc > 36){
+          posabc = posabc - 37;
         }
         console.log(char, posabc, abc.charAt(posabc));
         desencriptado.push(abc.charAt(posabc));
