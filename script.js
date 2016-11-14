@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Encriptar - Seguridad Informatica</title>
-  <meta charset="utf-8">
-  <meta lang="es-ES">
-  <link rel='stylesheet' href='./bootstrap.min.css' />
-</head>
-<div class="form-group" style="margin-left: 25%; margin-top: 10px;">
-  <label>Palabra Clave: </label>
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Palabra Clave" id="pclave" onblur="genkey()" style="width: 400px;">
-  </div>
-  <label>Clave Real:</label>
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="0000000" id="cgen" disabled style="width: 400px;">
-  </div>
-  <label>Desplasamiento:</label>
-  <div class="input-group">
-    <input type="text" class="form-control" value="didi" id="desp" style="width: 400px;">
-  </div>
-  <label>Mensaje: </label>
-  <div class="input-group">
-    <textarea style="width: 400px; height: 250px;" type="text" class="form-control" value="" id="mensaje"></textarea>
-  </div>
-  <div style="width: 50%;">
-    <button onclick="encrypt()" class="btn btn-primary" style="margin-top: 10px;">Cifrar Mensaje</button>
-    <button onclick="decrypt()" class="btn btn-primary" style="margin-top: 10px; margin-left: 28%;">Descifrar Mensaje</button>
-  </div>
-  <span><b style="font-size: 20px;" id="cifrado"></b></span>
-</div>
-  <script>
-    function genkey(){
+function genkey(){
       var clave = document.getElementById('pclave').value;
       console.log(clave);
       var abc = "abcdefghijklmnñopqrstuvwxyz"
@@ -45,23 +13,17 @@
       }
       document.getElementById('cgen').value = clave;
     };
-
     function encrypt(){
       var abc = "abcdefghijklmnñopqrstuvwxyz"
-
       var cgen = document.getElementById('cgen').value;
-
       var mensaje = document.getElementById('mensaje').value.toLowerCase();
       mensaje = mensaje.toString().replace(/,/g, "");
       mensaje = mensaje.toString().replace(/\./g, "");encriptado
-
       var desp = document.getElementById('desp').value;
-
       var encriptado = [];
       var i = 0, j = 0, k = 0;
       var posabc = 0;
       var char = '';
-
       while(i < mensaje.length){
         if(j == cgen.length){
           j = 0;
@@ -95,9 +57,7 @@
         }
         i++;
       }
-
-      encriptado = encriptado.toString().replace(/,/g, "");encriptado
-      document.getElementById('cifrado').innerHTML = encriptado;
+      encriptado = encriptado.toString().replace(/,/g, "");
       document.getElementById('mensaje').value = encriptado;
       
     };
@@ -110,7 +70,6 @@
       var i = 0, j = 0, k = 0;
       var posabc = 0;
       var char = '';
-
       while(i < mensaje.length){
         if(j == cgen.length){
           j = 0;
@@ -145,10 +104,6 @@
         i++;
       }
       desencriptado = desencriptado.toString().replace(/,/g, "");
-      document.getElementById('cifrado').innerHTML = desencriptado;
       document.getElementById('mensaje').value = desencriptado;
       
     };
-  </script>
-</body>
-</html>
